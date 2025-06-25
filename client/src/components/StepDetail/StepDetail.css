@@ -1,0 +1,65 @@
+.step {
+  color: blue;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.step__title {
+  color: Gold;
+}
+
+.step__quote {
+  color: black;
+  font-style: italic;
+  font-size: 24px;
+}
+
+.step__questions {
+  width: 75%;
+}
+
+.step__question {
+  margin: 15px 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.step__question-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.step__question-input {
+  background-color: white;
+  height: 60px;
+  color: black;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  vertical-align: top;
+  text-align: left;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.step__btns {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-around;
+}
+
+.step__btn {
+  display: flex;
+  justify-content: center;
+  border-radius: 6px;
+  align-items: center;
+  background-color: blue;
+  width: 25%;
+  height: 40px;
+  text-align: center;
+  color: gold;
+}

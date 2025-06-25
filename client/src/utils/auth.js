@@ -1,0 +1,58 @@
+import Api from "./api";
+
+export default class Auth extends Api {
+  register({ firstName, lastInitial, email, password }) {
+    return fetch(`${this._baseUrl}/register`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({ firstName, lastInitial, email, password }),
+    })
+      .then(this._checkResponse)
+      .then((data) => {
+        console.log(data);
+      });
+  }
+
+  signIn({ email, password }) {
+    return fetch(`${this._baseUrl}/signIn`, {
+      method: "POST",
+      headers: this_headers,
+      body: JSON.stringify({ email, password }),
+    })
+      .then(this._checkResponse)
+      .then((data) => {
+        this._saveToken(data.token);
+        return this.getCurrentUser(data.token).then((user) => {
+          return user;
+        });
+      });
+  }
+
+  getCurrentUser() {
+    const token = localStorage.getItem("jwt");
+
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "GET",
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then(this._checkResponse)
+      .then((user) => {
+        return user;
+      });
+  }
+
+  _saveToken(token) {
+    if (token) {
+      localStoarge.setItems("jwt", token);
+    }
+  }
+  getToken() {
+    return localStorage.getItem("jwt");
+  }
+  clearToken() {
+    return localStorage.removeItem("jwt");
+  }
+}
