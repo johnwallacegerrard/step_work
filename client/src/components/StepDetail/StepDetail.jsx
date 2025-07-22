@@ -2,6 +2,15 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import steps from "../../assets/steps";
 import "./StepDetail.css";
+import Api from "../../utils/api";
+import StepIntroModal from "../StepIntroModal/StepIntroModal";
+
+const api = new Api({
+  baseUrl: "http://localhost:3001",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
 function StepDetail() {
   const { stepNumber } = useParams();
@@ -33,6 +42,7 @@ function StepDetail() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("jwt");
 
     const isComplete = answers.every((ans) => ans.trim() !== "");
     if (!isComplete) {
@@ -40,11 +50,11 @@ function StepDetail() {
       return;
     }
 
-    console.log("Submitted answers:", answers);
+    api.submitStepAnswers(step.stepNumber, answers).then(() => {
+      localStorage.removeItem(`step-${step.stepNumber}-draft`);
 
-    localStorage.removeItem(`step-${step.stepNumber}-draft`);
-
-    navigate("/steps");
+      navigate("/steps");
+    });
   };
 
   if (!step) {
@@ -55,7 +65,7 @@ function StepDetail() {
     <div className="step">
       <h1 className="step__title">Step One</h1>;
       <p className="step__quote">{step.stepQuote}</p>;
-      <form className="step__questions">
+      <form onSubmit={handleSubmit} className="step__questions">
         {step.questions.map((question, index) => (
           <div key={index} className="step__question">
             <label
@@ -83,9 +93,12 @@ function StepDetail() {
           >
             Save and Exit
           </button>
-          <button className="step__btn">Submit Step</button>
+          <button type="submit" className="step__btn">
+            Submit Step
+          </button>
         </div>
       </form>
+      <StepIntroModal />
     </div>
   );
 }

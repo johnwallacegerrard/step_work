@@ -1,0 +1,40 @@
+.dashboard {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.dashboard__title {
+  color: gold;
+  margin: 0 auto;
+}
+
+.dashboard__welcome-message {
+  margin: 20px auto;
+}
+
+.dashboard__quote-container {
+  margin: 20px auto;
+  width: 75%;
+  border-style: double;
+  border-width: 8px;
+  border-color: blue;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.dashboard__quote {
+  text-align: center;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.dashboard__quote-author {
+  font-size: 20px;
+  text-align: right;
+  margin-right: 20px;
+}

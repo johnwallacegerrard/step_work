@@ -1,8 +1,10 @@
 import { useState, useEffect, useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
+  const { handleSigninSubmit } = useContext(CurrentUserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,7 +14,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLoginSubmit({ email, password });
+    handleSigninSubmit({ email, password });
   };
 
   return (
@@ -48,7 +50,11 @@ function Login() {
           />
         </label>
         <div className="Login__form-btns">
-          <button type="submit" className="Login__form-btn">
+          <button
+            onClick={handleSubmit}
+            type="submit"
+            className="Login__form-btn"
+          >
             Sign In
           </button>
           <Link to="/register" className="Login__form-btn">

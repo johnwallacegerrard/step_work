@@ -1,8 +1,11 @@
 import { useState, useEffect, useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import "./Register.css";
 
 function Registration() {
+  const { handleRegisterSubmit } = useContext(CurrentUserContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -14,13 +17,13 @@ function Registration() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleRegisterSubmit({ email, password, firstName });
+    handleRegisterSubmit({ email, password, firstName, lastInitial });
   };
 
   return (
     <div className="Register">
       <h1 className="Register__title">StepWork</h1>
-      <form className="Register__form">
+      <form onSubmit={handleSubmit} className="Register__form">
         <label htmlFor="first-name" className="Register__form-label">
           First Name
           <input
@@ -82,7 +85,7 @@ function Registration() {
           <button type="submit" className="Register__form-btn">
             Register
           </button>
-          <Link to="/register" className="Register__form-btn">
+          <Link to="/Login" className="Register__form-btn">
             Sign In
           </Link>
         </div>

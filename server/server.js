@@ -8,16 +8,14 @@ const mongoose = require("mongoose");
 
 dotenv.config();
 
+const mainRouter = require("./routes/index");
+
 const app = express();
 
-const { PORT = 3001 } = process.env;
+const { PORT = 3002 } = process.env;
 
 app.use(cors());
 app.use(express.json());
-
-app.listen(PORT, () => {
-  console.log("Listening on port 3001");
-});
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/stepworkdb", {
@@ -26,3 +24,9 @@ mongoose
   })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
+
+app.use("/api", mainRouter);
+
+app.listen(PORT, () => {
+  console.log(`Listening on ${PORT}`);
+});

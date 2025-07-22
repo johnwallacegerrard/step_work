@@ -1,15 +1,14 @@
-import "./Steps.css";
 import steps from "../../assets/steps";
 import { Link } from "react-router-dom";
 
-function StepsPage() {
+function Steps() {
   return (
     <div className="steps">
       {steps.map((step) => {
         return (
           <div key={step.stepNumber} className="step">
             <Link
-              to={`/steps/${step.stepNumber}`}
+              to={`/${step.stepNumber}`}
               className="step__title"
             >{`Step Number ${step.stepNumber}`}</Link>
           </div>
@@ -19,4 +18,4 @@ function StepsPage() {
   );
 }
 
-export default StepsPage;
+export default Steps;

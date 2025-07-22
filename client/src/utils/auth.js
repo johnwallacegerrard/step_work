@@ -2,21 +2,21 @@ import Api from "./api";
 
 export default class Auth extends Api {
   register({ firstName, lastInitial, email, password }) {
-    return fetch(`${this._baseUrl}/register`, {
+    return fetch(`${this._baseUrl}/api/register`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({ firstName, lastInitial, email, password }),
     })
       .then(this._checkResponse)
       .then((data) => {
-        console.log(data);
+        return this.signIn({ email: data.email, password: password });
       });
   }
 
   signIn({ email, password }) {
-    return fetch(`${this._baseUrl}/signIn`, {
+    return fetch(`${this._baseUrl}/api/signIn`, {
       method: "POST",
-      headers: this_headers,
+      headers: this._headers,
       body: JSON.stringify({ email, password }),
     })
       .then(this._checkResponse)
@@ -31,7 +31,7 @@ export default class Auth extends Api {
   getCurrentUser() {
     const token = localStorage.getItem("jwt");
 
-    return fetch(`${this._baseUrl}/users/me`, {
+    return fetch(`${this._baseUrl}/api/users/me`, {
       method: "GET",
       headers: {
         ...this._headers,
@@ -46,7 +46,7 @@ export default class Auth extends Api {
 
   _saveToken(token) {
     if (token) {
-      localStoarge.setItems("jwt", token);
+      localStorage.setItem("jwt", token);
     }
   }
   getToken() {
