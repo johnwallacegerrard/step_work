@@ -2,6 +2,7 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  flex: 1;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -65,4 +66,16 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./vendor/fonts/Nunito/Nunito-VariableFont_wght.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Playfair";
+  src: url("./vendor/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf")
+    format("truetype");
 }

@@ -20,6 +20,14 @@ const steps = [
       "What is my understanding of Step One?",
     ],
   },
+  {
+    stepNumber: 2,
+    stepQuote:
+      '"We came to believe that a Power greater than ourselves could restore us to sanity."',
+    stepIntro:
+      'Step One brings us the reality of our situation. The Second Step shows us that it is not the end of the story, that something can be done. Many are uneasy about the mention of a "Higher Power", believing that one must be religious to work the program. This is not true! The beauty of the Second Step lies in the fact that one can choose just about anything to be their Higher Power. We are encouraged to pick a Power that is loving, and caring, but most of all a Power that is greater than ourselves and can restore us to sanity. This is a spiritual, not religious, program.',
+    questions: ["What do I have hope about today?", ""],
+  },
 ];
 
 export default steps;

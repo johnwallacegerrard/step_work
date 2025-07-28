@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import "./Dashboard.css";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import Steps from "../../components/Steps/Steps";
+import JournalEntry from "../../components/JournalEntry/JournalEntry";
 
 function Dashboard() {
   const { currentUser, handleSignOut } = useContext(CurrentUserContext);
@@ -26,10 +27,16 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      <h1 className="dashboard__title">StepWork</h1>
       <h2 className="dashboard__welcome-message">
-        Welcome back, {currentUser?.firstName + " " + currentUser?.lastInitial}
+        Welcome back, {currentUser?.firstName + " " + currentUser?.lastInitial}!
       </h2>
+      <button
+        type="button"
+        onClick={handleSignOut}
+        className="dashboard__sign-out-btn"
+      >
+        Sign Out
+      </button>
       <div className="dashboard__quote-container">
         {loading ? (
           <p className="dashboard__quote-loading">
@@ -44,17 +51,10 @@ function Dashboard() {
           <p className="dashboard__quote-error">Could not load quote.</p>
         )}
       </div>
-      <div className="dashboard__container">
+      <div className="dashboard__component-container">
         <Steps />
+        <JournalEntry />
       </div>
-
-      <button
-        type="button"
-        onClick={handleSignOut}
-        className="dashboard__sign-out-btn"
-      >
-        Sign Out
-      </button>
     </div>
   );
 }

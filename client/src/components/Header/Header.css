@@ -1,0 +1,22 @@
+.header {
+  background-color: gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  height: 64px;
+  width: 80px;
+}
+
+.header__title {
+  color: blue;
+  font-family: "Playfair", sans-serif;
+  font-weight: 700;
+}

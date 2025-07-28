@@ -5,7 +5,6 @@ import "./StepIntroModal.css";
 
 function StepIntroModal() {
   const introModal = document.querySelector(".modal");
-  console.log(introModal);
   const { stepNumber } = useParams();
   const step = steps.find((s) => s.stepNumber === parseInt(stepNumber));
 

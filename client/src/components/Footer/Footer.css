@@ -1,0 +1,42 @@
+.footer {
+  padding: 10px;
+  display: flex;
+  background-color: blue;
+}
+.footer__statement-container {
+  width: 40%;
+  margin-right: 10px;
+  padding: 5px;
+  border: 6px black double;
+  border-radius: 8px;
+}
+
+.footer__statement {
+  font-style: italic;
+}
+
+.footer__links {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__links-title {
+  text-align: right;
+}
+
+.footer__link {
+  color: gold;
+  text-align: right;
+}
+
+@media screen and (max-width: 627px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__statement-container {
+    width: 80%;
+  }
+}

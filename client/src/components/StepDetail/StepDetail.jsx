@@ -31,7 +31,7 @@ function StepDetail() {
       `step-${step.stepNumber}-draft`,
       JSON.stringify(answers)
     );
-    navigate("/steps");
+    navigate("/");
   };
 
   const handleChange = (index, value) => {

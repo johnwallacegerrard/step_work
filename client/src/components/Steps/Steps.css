@@ -1,0 +1,29 @@
+.steps {
+  width: 40%;
+}
+
+.steps__title {
+  text-align: center;
+  font-family: "Playfair", sans-serif;
+}
+
+.steps__container {
+  border: 2px black solid;
+  border-radius: 8px;
+}
+
+.steps__step-container {
+  display: flex;
+  justify-content: center;
+}
+
+.steps__step {
+  font-family: "Nunito", sans-serif;
+  color: blue;
+}
+
+@media screen and (max-width: 627px) {
+  .steps {
+    width: 100%;
+  }
+}

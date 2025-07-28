@@ -1,6 +1,4 @@
 .dashboard {
-  height: 100vh;
-  width: 100vw;
   background-color: white;
   color: black;
   display: flex;
@@ -8,13 +6,15 @@
   padding: 20px;
 }
 
-.dashboard__title {
-  color: gold;
-  margin: 0 auto;
-}
-
 .dashboard__welcome-message {
   margin: 20px auto;
+  font-family: "Playfair", sans-serif;
+}
+
+.dashboard__sign-out-btn {
+  width: 20%;
+  margin: 0 auto;
+  font-family: "Nunito", sans-serif;
 }
 
 .dashboard__quote-container {
@@ -37,4 +37,23 @@
   font-size: 20px;
   text-align: right;
   margin-right: 20px;
+  font-family: "Nunito", sans-serif;
+}
+
+.dashboard__component-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 75%;
+}
+
+@media screen and (max-width: 627px) {
+  .dashboard__component-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .dashboard__sign-out-btn {
+    width: 40%;
+  }
 }
